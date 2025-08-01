@@ -1,0 +1,13 @@
+CUDA_VISIBLE_DEVICES=3 python inference_time_mlora.py \
+    --model Qwen2.5-7B-Instruct \
+    --adapter mlora \
+    --base_model 'Qwen/Qwen2.5-7B-Instruct' \
+    --lora_target_modules '["q_proj", "k_proj", "v_proj", "o_proj"]' \
+    --batch_size 1 \
+    --lora_r 16 \
+    --lora_alpha 32 \
+    --lora_dropout 0.1 \
+    --lambda_num 16 \
+    --num_B 3 \
+    --temperature 0.01 \
+    --lora_weights '/home/ly/med-moe-mtl/results/mlora_r16_n2/checkpoint/final_checkpoint.pt' \

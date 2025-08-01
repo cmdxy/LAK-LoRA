@@ -1,0 +1,11 @@
+CUDA_VISIBLE_DEVICES=3 python mlora_evaluate.py \
+    --model Qwen2.5-7B-Instruct \
+    --adapter multilora \
+    --base_model 'Qwen/Qwen2.5-7B-Instruct' \
+    --batch_size 1 \
+    --lora_r 16 \
+    --lora_alpha 32 \
+    --lora_dropout 0.1 \
+    --lora_num 3 \
+    --lora_target_modules '["q_proj", "k_proj", "v_proj", "o_proj"]' \
+    --lora_weights '' \
