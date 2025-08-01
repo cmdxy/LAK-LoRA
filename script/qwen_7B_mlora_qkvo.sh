@@ -1,21 +1,15 @@
-SCRIPT_PATH=mlora_finetune_copy.py
-# DATA_PATH=""  # .../commonsense_170k_taskid.json
-# CACHE_DIR=""  # Cache directory is not used in this script
-# DEEPSPEED_CONFIG=config/ds2.json
-# OUTPUT_PATH=""  # Output directory is not used in this script
-DATA_PATH="/home/ly/med-moe-mtl/data/train.jsonl"
-VAL_DATA_PATH="/home/ly/med-moe-mtl/data/dev.jsonl"
-DEEPSPEED_CONFIG="/home/ly/med-moe-mtl/config/ds2.json"
-OUTPUT_DIR="/home/ly/med-moe-mtl/results/mlora_r16_n2"
+SCRIPT_PATH=mlora_finetune.py
+DATA_PATH=""
+VAL_DATA_PATH=""
+DEEPSPEED_CONFIG=""
+OUTPUT_DIR=""
 
 lora_r=16
 lora_alpha=32
 lora_dropout=0.1
 
-wandb_run_name="mlora_r16_n2"
-wandb_project="mlora_r16_n2"
-
-# export MASTER_PORT=29501  # 更改为未被占用的端口
+wandb_run_name=""
+wandb_project=""
 
 
 CUDA_VISIBLE_DEVICES=0,1,3 deepspeed --master_port 29520 $SCRIPT_PATH \

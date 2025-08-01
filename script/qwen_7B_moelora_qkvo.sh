@@ -7,10 +7,9 @@ OUTPUT_DIR=""
 lora_r=16
 lora_alpha=32
 lora_dropout=0.1
-# unset WANDB_RUN_ID
-# unset WANDB_RUN_NAME
-wandb_run_name="moelora_r16_e16"
-wandb_project="moelora_r16_e16"
+
+wandb_run_name=""
+wandb_project=""
 
 CUDA_VISIBLE_DEVICES=0,1,2 deepspeed --master_port 29501 $SCRIPT_PATH \
     --base_model 'Qwen/Qwen2.5-7B-Instruct' \
@@ -32,6 +31,5 @@ CUDA_VISIBLE_DEVICES=0,1,2 deepspeed --master_port 29501 $SCRIPT_PATH \
     --use_gradient_checkpointing \
     --task_num 16 \
     --expert_num 16 \
-    # --shared_expert_num 2 \
     --te_dim 64 \
     --deepspeed $DEEPSPEED_CONFIG \

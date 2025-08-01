@@ -10,4 +10,4 @@ CUDA_VISIBLE_DEVICES=1 python mlora_evaluate.py \
     --task_num 16 \
     --expert_num 8 \
     --te_dim 64 \
-    --lora_weights '/home/ly/med-moe-mtl/results/moelora_r16_e16/checkpoint/final_checkpoint.pt' \
+    --lora_weights '' \
